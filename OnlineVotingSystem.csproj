@@ -74,15 +74,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BallotPaperController.cs" />
     <Compile Include="Controllers\CandidateMainController.cs" />
+    <Compile Include="Controllers\VoteCastController.cs" />
     <Compile Include="Controllers\ElectionMainController.cs" />
     <Compile Include="Controllers\VoterMainController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BallotPaper.cs" />
     <Compile Include="Models\Candidate.cs" />
     <Compile Include="Models\SystemDbConfiguration.cs" />
     <Compile Include="Models\Election.cs" />
+    <Compile Include="Models\VoteCast.cs" />
+    <Compile Include="Models\VoteCount.cs" />
     <Compile Include="Models\Voter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -98,7 +103,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

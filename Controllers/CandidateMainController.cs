@@ -21,7 +21,7 @@ namespace OnlineVotingSystem.Controllers
         //
         // GET: /CandidateMain/Details/5
 
-        public ActionResult Profile(string id)
+        public ActionResult CandidateProfile(string id)
         {
             if (id == null)
                 id = ID;

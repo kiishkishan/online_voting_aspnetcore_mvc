@@ -13,7 +13,8 @@ namespace OnlineVotingSystem.Models
       
         public string Name { get; set; }
         public string Nic_no { get; set; }
-        public string Address { get; set; }
+        public string District { get; set; }
+        public string PollingDivision { get; set; }
         [DataType(DataType.EmailAddress)]
         public string EMail { get; set; }
         public bool Voted { get; set; }

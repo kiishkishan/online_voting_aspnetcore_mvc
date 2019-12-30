@@ -19,9 +19,9 @@ namespace OnlineVotingSystem.Controllers
         }
 
         //
-        // GET: /VoterMain/Details/5
+        // GET: /VoterMain/Details/{id}
 
-        public ActionResult Profile(string id)
+        public ActionResult VoterProfile(string id)
         {
             try
             {
@@ -35,10 +35,10 @@ namespace OnlineVotingSystem.Controllers
             }
         }
 
- 
+
         //
-        // GET: /VoterMain/Edit/5
- 
+        // GET: /VoterMain/Edit/{id}
+
         public ActionResult Edit(string id)
         {
             var voter = Db.Voters.Single(r => r.VoterId == id);
@@ -47,7 +47,7 @@ namespace OnlineVotingSystem.Controllers
         }
 
         //
-        // POST: /VoterMain/Edit/5
+        // POST: /VoterMain/Edit/{id}
 
         [HttpPost]
         public ActionResult Edit(string id, FormCollection collection)
@@ -67,15 +67,14 @@ namespace OnlineVotingSystem.Controllers
         }
 
         //
-        // GET: /VoterMain/Delete/5
+        // GET: /VoterMain/ResetStatus/{id}  * for new election
 
-        public ActionResult Vote()
+        public ActionResult ResetVoteStatus()
         {
             try
             {
-                var voter = Db.Voters.Single(r => r.VoterId == ID && r.Voted==0);
+                var voter = Db.Voters.Single(r => r.VoterId == ID && r.Voted == false);
                 var model = Db;
-                ViewBag.items = new[] { "ElectionID", "VoterID", "CandidateID", "Status" };
                 return View(model);
             }
             catch
@@ -85,21 +84,10 @@ namespace OnlineVotingSystem.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult Vote(string ElectionID, string VoterID, string CandidateID, bool Status)
-        {
-            var vote = Db.Candidates
-            .Single(r=>r.CandidateId==CandidateID);
-            vote.Votes = vote.Votes + 1;
-            var voted = Db.Voters
-            .Single(r => r.VoterId == VoterID);
-            voted.Voted = voted.Voted = true;
-            
-            return View("Voted");
-        }
 
 
 
-       
-       
+
+
+    }
 }
